@@ -7,4 +7,7 @@
   background-color: #eee;
   padding: 15px;
   transition: .3s;
+  &.no-sidebar {
+    left: -250px;
+  }
 }
