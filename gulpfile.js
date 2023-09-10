@@ -6,6 +6,8 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     notify = require('gulp-notify'),
     sourcemaps = require('gulp-sourcemaps'),
+    ftp = require('vinyl-ftp'),
+    gutil = require('gulp-util'),
     minify = require('gulp-minify');
 
 gulp.task('html', function() {
@@ -33,10 +35,33 @@ gulp.task('js', function() {
           .pipe(livereload())
 })
 
+gulp.task('deploy', function() {
+  var conn = ftp.create({
+    host: 'alaa.net',
+    user: 'AlaaShaat',
+    password: 'alaa123',
+    parallel: 10,
+    log: gutil.log,
+  });
+
+  return gulp.src(['dist/**/*.*'], {base: '.', buffer: false})
+          .pipe(conn.newer('/public_html'))
+          .pipe(conn.dest('/public_html'))
+          .pipe(livereload());
+  
+})
+
+
+
 gulp.task('watch', function() {
     require('./server.js');
     livereload.listen();
     gulp.watch('stage/html/**/*.pug', gulp.series('html'));
     gulp.watch(['stage/css/**/*.css', 'stage/css/**/*.scss'], gulp.series('css'));
-    gulp.watch('stage/js/*.js', gulp.series('js'))
+    gulp.watch('stage/js/*.js', gulp.series('js'));
+    // gulp.watch('dist/**/*.*', gulp.parallel('deploy'))
 })
+
+
+
+

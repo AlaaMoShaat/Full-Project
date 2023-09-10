@@ -3,19 +3,52 @@
   margin: 0;
   padding: 0;
 }
+a {
+  text-decoration: none !important;
+}
+i.show,
+i.full-screen {
+  color: #2980b9;
+}
 body {
-
+  font-family: 'Open Sans', sans-serif;
+  &.open {
+    font-family: 'Open Sans', sans-serif;
+  }
+  &.public {
+    font-family: 'Public Sans', sans-serif;
+  }
+  &.roboto {
+    font-family: 'Roboto', sans-serif;
+  }
+  &.RobotoMono {
+    font-family: 'Roboto Mono', monospace;
+  }
 }
 .page {
   min-height: 100vh;
   .content-area {
     width: calc(100% - 250px);
-    min-height: 100%;
+    min-height: 100vh;
     transition: .3s;
     will-change: width;
     float: right;
+    background-color: #f2f1f6;
     &.no-sidebar {
       width: 100%;
+      .header > i:first-child {
+        color: #2980b9;
+      }
     }
   }
+  .page-head {
+    margin-top: 20px;
+    padding: 20px;
+    .page-title { 
+      font-weight: bold;
+      color: #27ae60;
+    }
+
+  }
+  
 }

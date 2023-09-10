@@ -1,2 +1,56 @@
 .header 
-  i.fa.fa-exchange.fa-lg.toggle-sidebar
+  i.fa.fa-exchange.fa-lg.toggle-sidebar.header-icon
+  .dropdown.notifications-container
+    i.fa.fa-bell.fa-lg.header-icon.toggle-notifications#notifications(data-bs-toggle="dropdown" aria-expanded="false")
+    .dropdown-menu(aria-labelledby="notifications")
+      .noti-head
+        | Notifications 
+        span 50
+      .noti-content
+        ul.list-unstyled
+          li
+            i.fa.fa-envelope.fa-lg
+            | You Got Email
+          li
+            i.fa.fa-envelope.fa-lg
+            | You Got Money
+          li
+            i.fa.fa-envelope.fa-lg
+            | You Got Like
+          li
+            i.fa.fa-envelope.fa-lg
+            | You Got Money
+          li
+            i.fa.fa-envelope.fa-lg
+            | You Got Like
+      .noti-foot.text-center: a(href="#") View All Notifications
+  i.fa.fa-expand.fa-lg.toggle-fullscreen.header-icon
+  .dropdown.usermenu-container
+    .username#usermenu(data-bs-toggle="dropdown" aria-expanded="false")
+      img.avater.rounded-circle(src="../dist/imges/useravater.jpg" alt="User Avater")
+      span.user Alaa Shaat
+      i.fa.fa-angle-down.fa-lg
+    .dropdown-menu.dropdown-menu-right(aria-labelledby="usermenu")
+      .user-info 
+        h3 Alaa Shaat 
+        p Premium Member 
+      hr
+      ul.activities-list.list-unstyled 
+        li Add Comment On Post "bal bal bla"
+        li Add Comment On Post "bal bla"
+        li Add Comment On Post "bal bal bla"
+        li Add Comment On Post "bal bla"
+      hr
+      .row.user-links
+        .col
+          .link-box
+            i.fa.fa-gear.fa-lg.fa-fw 
+            span Settings
+        .col
+          .link-box 
+            i.fa.fa-user.fa-lg.fa-fw 
+            span My Profile
+        .col
+          .link-box
+            i.fa.fa-power-off.fa-lg.fa-fw 
+            span Logout
